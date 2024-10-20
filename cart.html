@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Box icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+    />
+    <!-- Custom StyleSheet -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="images/logo.png" />
+    <title>Your Cart</title>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <section id ="header">
+      <a href="#"><img src="logo2.png" class="logo" alt=""></a>
+<nav>
+      <div class="nav-links" id="navlinks">
+          <ul id="navbar">
+              <li><a class="active" href="index.html" id="home-btn">
+<!--HOME-->
+                  <script src="https://cdn.lordicon.com/lordicon.js"></script>
+                  <lord-icon
+                      src="https://cdn.lordicon.com/cnpvyndp.json"
+                      trigger="hover"
+                      style="width:30px;height:30px">
+                  </lord-icon>
+              </a></li>
+<!---user-->
+<li>
+<script src="https://cdn.lordicon.com/lordicon.js"></script>
+<a href="blog.html">
+<lord-icon
+src="https://cdn.lordicon.com/kthelypq.json"
+trigger="hover"
+style="width:30px;height:30px">
+</lord-icon>
+            </a></li>
+            </ul>
+            </div>
+            </nav>
+            </section>
+
+    <!-- Cart Items -->
+    <div class="container cart">
+      <table>
+        <tr>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Subtotal</th>
+        </tr>
+            
+        <tr id="item-1">
+          <td>
+            <div class="cart-info">
+              <img src="./images/product-3.jpg" alt="" />
+              <div>
+                <p>Brass Kettle</p>
+                <span>Price: &#8377;990</span> <br />
+                <a href="#" class="remove-item">remove</a>
+              </div>
+            </div>
+          </td>
+          <td><input type="number" value="1" min="1" /></td>
+          <td>&#8377;990</td>
+        </tr>
+        <tr id="item-2">
+          <td>
+            <div class="cart-info">
+              <img src="images/product-5.jpg" alt="" />
+              <div>
+                <p>Pheran Kurti</p>
+                <span>Price: &#8377;1,560</span> <br />
+                <a href="#" class="remove-item">remove</a>
+              </div>
+            </div>
+          </td>
+          <td><input type="number" value="1" min="1" /></td>
+          <td>&#8377;1,560</td>
+        </tr>
+        <tr id="item-3">
+          <td>
+            <div class="cart-info">
+              <img src="images/product-6.jpg" alt="" />
+              <div>
+                <p>Pashmina Shawl</p>
+                <span>Price: &#8377;800</span> <br />
+                <a href="#" class="remove-item">remove</a>
+              </div>
+            </div>
+          </td>
+          <td><input type="number" value="1" min="1" /></td>
+          <td>&#8377;800</td>
+        </tr>
+        
+          </td>
+        </tr>
+      </table>
+
+      <div class="total-price">
+        <table>
+          <tr>
+            <td>Subtotal</td>
+            <td>&#8377;3,350</td>
+          </tr>
+          <tr>
+            <td>Tax</td>
+            <td>&#8377;150</td>
+          </tr>
+          <tr>
+            <td>Total</td>
+            <td>&#8377;3,500</td>
+          </tr>
+        </table>
+        <a href="payment.html" class="checkout btn">Proceed To Checkout</a>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="row">
+        <div class="col d-flex">
+          <h4>INFORMATION</h4>
+          <a href="">About us</a>
+          <a href="">Contact Us</a>
+          <a href="">Term & Conditions</a>
+          <a href="">Shipping Guide</a>
+        </div>
+        <div class="col d-flex">
+          <h4>USEFUL LINK</h4>
+          <a href="">Online Store</a>
+          <a href="">Customer Services</a>
+          <a href="">Promotion</a>
+          <a href="">Top Brands</a>
+        </div>
+        <div class="col d-flex">
+          <span><i class="bx bxl-facebook-square"></i></span>
+          <span><i class="bx bxl-instagram-alt"></i></span>
+          <span><i class="bx bxl-github"></i></span>
+          <span><i class="bx bxl-twitter"></i></span>
+          <span><i class="bx bxl-pinterest"></i></span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Custom Script -->
+    <script src="cart.js"></script>
+    <!-- Custom Script -->
+<script>
+  document.querySelectorAll('.remove-item').forEach((button) => {
+    button.addEventListener('click', function (event) {
+      event.preventDefault();
+      const itemRow = this.closest('tr');
+      const itemPrice = parseFloat(
+        itemRow.querySelector('td:last-child').textContent.replace('₹', '').replace(',', '')
+      );
+      itemRow.remove();
+
+      // Update the total price
+      updateTotal(-itemPrice);
+    });
+  });
+
+  function updateTotal(change) {
+    const subtotalElement = document.querySelector('.total-price td:nth-child(2)');
+    const totalElement = document.querySelector('.total-price tr:last-child td:last-child');
+    const currentSubtotal = parseFloat(subtotalElement.textContent.replace('₹', '').replace(',', ''));
+    const newSubtotal = currentSubtotal + change;
+
+    const tax = 150; // You can calculate this dynamically if needed
+    const newTotal = newSubtotal + tax;
+
+    subtotalElement.textContent = `₹${newSubtotal.toLocaleString()}`;
+    totalElement.textContent = `₹${newTotal.toLocaleString()}`;
+  }
+</script>
+
+  </body>
+</html>

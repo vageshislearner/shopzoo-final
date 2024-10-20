@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Cart</title>
+    <link rel="stylesheet" href="cart2.css">
+    <script src="https://kit.fontawesome.com/86d38bd613.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!-- Cart Section -->
+    <div id="cart-section">
+        <!-- Empty cart message -->
+        <div id="empty-cart" class="cart-empty">
+            <i class="fas fa-shopping-cart big-cart-icon"></i>
+            <p>Your cart is empty</p>
+        </div>
+
+        <!-- Filled cart (hidden by default) -->
+        <div id="cart-items" class="cart-hidden">
+            <h2>Your Cart</h2>
+            <ul id="cart-list"></ul>
+            <div class="cart-total">
+                <p>Total: <span id="total-price">₹0.00</span></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Section -->
+    <div id="product-section">
+        <div class="product">
+            <img src="products/lays.jpg" alt="Lay's Party Pack">
+            <h3>Lay's Party Pack</h3>
+            <p>Price: ₹20.00</p>
+            <button class="add-to-cart-btn" data-product="Lay's Party Pack" data-price="20.00">Add to cart</button>
+        </div>
+        <div class="product">
+            <img src="products/haldiram.jpg" alt="Haldiram's Chips">
+            <h3>Haldiram's Chips</h3>
+            <p>Price: ₹30.00</p>
+            <button class="add-to-cart-btn" data-product="Haldiram's Chips" data-price="30.00">Add to cart</button>
+        </div>
+    </div>
+
+    <script src="cart2.js"></script>
+</body>
+</html>
